@@ -5,7 +5,8 @@ import 'package:tor_application/conts/app_color.dart';
 
 class VioletButton extends StatelessWidget {
   final String title;
-  VioletButton(this.title);
+  final Function onAction;
+  VioletButton(this.title,this.onAction);
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +14,7 @@ class VioletButton extends StatelessWidget {
     return Obx(() => InkWell(
           onTap: () {
             _value.value = true;
+            onAction();
           },
           child: Container(
             height: 45.h,

@@ -5,8 +5,6 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tor_application/conts/app_color.dart';
 
-
-
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
@@ -37,7 +35,7 @@ class OnboardingScreen extends StatelessWidget {
                   )),
             ),
             Expanded(
-              flex: 2 ,
+              flex: 2,
               child: Container(
                 decoration: BoxDecoration(
                   color: AppColor.scaffoldColler,
@@ -63,30 +61,35 @@ class OnboardingScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Obx(()=>Text(
-                        _title[_currentIndex.toInt()],
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 20.sp),
-                      ),),
-                     Obx(()=> Text(
-                        _description[_currentIndex.toInt()],
-                        style: TextStyle(fontSize: 14.sp),
-                      ),),
+                      Obx(
+                        () => Text(
+                          _title[_currentIndex.toInt()],
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 20.sp),
+                        ),
+                      ),
+                      Obx(
+                        () => Text(
+                          _description[_currentIndex.toInt()],
+                          style: TextStyle(fontSize: 14.sp),
+                        ),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                         Obx(()=> DotsIndicator(
-                            dotsCount: _lottie.length,
-                            position: _currentIndex.toInt(),
-                            decorator: DotsDecorator(),
-                          ),),
+                          Obx(
+                            () => DotsIndicator(
+                              dotsCount: _lottie.length,
+                              position: _currentIndex.toInt(),
+                              decorator: DotsDecorator(),
+                            ),
+                          ),
                           InkWell(
-                            onTap: (){
-                              if(_currentIndex==2){
-                               Get.toNamed('/signup-screen');
-
-                              }else{
-                                _currentIndex +=1;
+                            onTap: () {
+                              if (_currentIndex == 2) {
+                                Get.toNamed('/signup-screen');
+                              } else {
+                                _currentIndex += 1;
                               }
                             },
                             child: Container(
@@ -113,7 +116,6 @@ class OnboardingScreen extends StatelessWidget {
                               child: Icon(Icons.arrow_forward),
                             ),
                           )
-
                         ],
                       )
                     ],

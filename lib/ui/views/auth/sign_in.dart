@@ -31,12 +31,6 @@ class SignIn extends StatelessWidget {
                       fontSize: 36.sp,
                       color: AppColor.violetColor),
                 ),
-                SizedBox(height: 12.h),
-                Text(
-                  "Create Your account and start your journey...",
-                  style:
-                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w300),
-                ),
                 SizedBox(
                   height: 80.h,
                 ),
@@ -53,7 +47,7 @@ class SignIn extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                VioletButton("Log In"),
+                VioletButton("Log In",(){}),
                 SizedBox(
                   height: 10.h,
                 ),
