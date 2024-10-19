@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tor_application/ui/views/onboarding_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
     Future.delayed(
         Duration(seconds: 2),
         () => Navigator.push(
@@ -15,6 +21,11 @@ class SplashScreen extends StatelessWidget {
                 builder: (_) => OnboardingScreen(),
               ),
             ));
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
           body: Center(
@@ -31,7 +42,7 @@ class SplashScreen extends StatelessWidget {
             ),
             Text(
               "Travel Agency center",
-              style: TextStyle(fontWeight: FontWeight.w600),
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20.sp),
             )
           ],
         ),

@@ -1,7 +1,11 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import 'package:tor_application/conts/app_color.dart';
+
+
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -27,19 +31,94 @@ class OnboardingScreen extends StatelessWidget {
           children: [
             Obx(
               () => Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: LottieBuilder.asset(
                     _lottie[_currentIndex.toInt()],
                   )),
             ),
             Expanded(
-              flex: 1,
-              child: ElevatedButton(
-                onPressed: () {
-                  _currentIndex += 1;
-                  print(_currentIndex);
-                },
-                child: Text('Click me'),
+              flex: 2 ,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColor.scaffoldColler,
+                  borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      offset: Offset(4.0, 4.0),
+                      blurRadius: 10,
+                      spreadRadius: 1.0,
+                    ), // BoxShadow
+                    BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(-4.0, -4.0),
+                      blurRadius: 5,
+                      spreadRadius: 1.0,
+                    ),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(25),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Obx(()=>Text(
+                        _title[_currentIndex.toInt()],
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 20.sp),
+                      ),),
+                     Obx(()=> Text(
+                        _description[_currentIndex.toInt()],
+                        style: TextStyle(fontSize: 14.sp),
+                      ),),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                         Obx(()=> DotsIndicator(
+                            dotsCount: _lottie.length,
+                            position: _currentIndex.toInt(),
+                            decorator: DotsDecorator(),
+                          ),),
+                          InkWell(
+                            onTap: (){
+                              if(_currentIndex==2){
+                               Get.toNamed('/signup-screen');
+
+                              }else{
+                                _currentIndex +=1;
+                              }
+                            },
+                            child: Container(
+                              height: 37.h,
+                              width: 37.h,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFE9EDF0),
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black26,
+                                    offset: Offset(4.0, 4.0),
+                                    blurRadius: 10,
+                                    spreadRadius: 1.0,
+                                  ), // BoxShadow
+                                  BoxShadow(
+                                    color: Colors.white,
+                                    offset: Offset(-4.0, -4.0),
+                                    blurRadius: 5,
+                                    spreadRadius: 1.0,
+                                  ), // BoxShadow
+                                ],
+                              ),
+                              child: Icon(Icons.arrow_forward),
+                            ),
+                          )
+
+                        ],
+                      )
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
