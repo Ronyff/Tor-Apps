@@ -1,9 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+
+import 'package:tor_application/business_logic/auth.dart';
 import 'package:tor_application/conts/app_color.dart';
-import 'package:tor_application/ui/route/route.dart';
+
 import 'package:tor_application/ui/styles/styles.dart';
 import 'package:tor_application/ui/views/auth/sign_in.dart';
 import 'package:tor_application/ui/widgets/violet_button.dart';
@@ -51,7 +52,11 @@ class SignUp extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                VioletButton("Create Account",()=>Get.toNamed(userform)),
+                VioletButton(
+                  "Create Account",
+                  () => Auth().registration(
+                      _emailController.text, _passwordController.text, context),
+                ),
                 SizedBox(
                   height: 10.h,
                 ),
@@ -104,7 +109,8 @@ class SignUp extends StatelessWidget {
                               color: AppColor.violetColor),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.push(context, MaterialPageRoute(builder: (_)=>SignIn()));
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (_) => SignIn()));
                             })
                     ],
                   ),

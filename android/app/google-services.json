@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "59824614160",
+    "project_id": "tor-application-f2b92",
+    "storage_bucket": "tor-application-f2b92.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59824614160:android:b16236807f088fbf405395",
+        "android_client_info": {
+          "package_name": "com.example.tor_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY-mvwiXK1qJvYfEgFGAzZiDjWU3iq_9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

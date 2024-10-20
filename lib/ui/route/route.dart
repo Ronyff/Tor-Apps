@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:tor_application/ui/views/auth/sign_in.dart';
 import 'package:tor_application/ui/views/auth/sign_up.dart';
+import 'package:tor_application/ui/views/main_home_screen.dart';
 import 'package:tor_application/ui/views/onboarding_screen.dart';
 import 'package:tor_application/ui/views/privacy_policy.dart';
 import 'package:tor_application/ui/views/splash_screen.dart';
@@ -12,6 +13,7 @@ const String signup = '/signup-screen';
 const String signin = '/signin-screen';
 const String userform = '/userforn-screen';
 const String privacy = '/privacyPolicy-screen';
+const String mainHomeScreen = '/main-home-screen';
 List<GetPage> getPages = [
   GetPage(
     name: splash,
@@ -36,5 +38,9 @@ List<GetPage> getPages = [
    GetPage(
     name: privacy,
     page: () => PrivacyPolicy(),
+  ),
+   GetPage(
+    name: mainHomeScreen,
+    page: () => MainHomeScreen(),
   ),
 ];

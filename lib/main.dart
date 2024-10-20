@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -7,7 +9,21 @@ import 'package:tor_application/conts/app_name.dart';
 import 'package:tor_application/ui/route/route.dart';
 import 'package:tor_application/ui/views/splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+        options: FirebaseOptions(
+            apiKey: "AIzaSyDEk9ZYfP2qDYKz6soeIS14055xzfErWZk",
+            authDomain: "tor-application-f2b92.firebaseapp.com",
+            projectId: "tor-application-f2b92",
+            storageBucket: "tor-application-f2b92.appspot.com",
+            messagingSenderId: "59824614160",
+            appId: "1:59824614160:web:3dd5d3eec89fce74405395",
+            measurementId: "G-RLRZZ9P2V2"));
+  } else {
+    await Firebase.initializeApp();
+  }
   runApp(const MyApp());
 }
 
@@ -33,7 +49,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
           ),
           initialRoute: splash,
-          getPages: getPages, 
+          getPages: getPages,
           home: SplashScreen(),
         );
       },
